@@ -77,26 +77,9 @@
 * 从 [Releases]页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
 
 
-3. **放置并检查配置**
+3. **下载伴生应用 Pure Mihomo**
 * 将你调校好的 `config.yaml` 放置于 `/data/adb/mihomo/`。
-* 确保你的配置文件中包含了基础的 TUN 配置（示例如下）：
-```yaml
-tun:
-  enable: true
-  stack: mixed # 或 gvisor / system
-  dns-hijack:
-    - "any:53"
-    - "tcp://any:53"
-  auto-route: true
-  auto-detect-interface: true
 
-dns:
-  enable: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
 
 ```
 
@@ -140,4 +123,4 @@ dns:
 
 ## 📄 开源许可证
 
-本项目基于 [GPL-3.0 License](https://www.google.com/search?q=../../LICENSE&utm_source=gemini) 协议开源分发。核心可执行文件归 [Mihomo 官方项目组](https://www.google.com/search?q=https://github.com/MetaCubeX/mihomo&utm_source=gemini) 所有。
+本项目基于 [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.html) 协议开源分发。核心可执行文件归 [Mihomo 官方项目组](https://github.com/MetaCubeX) 所有。
