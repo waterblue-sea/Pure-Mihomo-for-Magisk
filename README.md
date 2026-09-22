@@ -74,7 +74,7 @@
 
 
 2. **安装模块**
-* 从 [Releases]页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
+* 从 [Releases]([https://github.com/waterblue-sea/Pure-Mihomo-for-Magisk/releases/tag/main])页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
 
 
 3. **下载伴生应用 Pure Mihomo**
@@ -123,4 +123,4 @@
 
 ## 📄 开源许可证
 
-本项目基于 [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.html) 协议开源分发。核心可执行文件归 [Mihomo 官方项目组](https://github.com/MetaCubeX) 所有。
+本项目基于 [GPL-3.0 License]([https://www.gnu.org/licenses/gpl-3.0.html]) 协议开源分发。核心可执行文件归 [Mihomo 官方项目组]([https://github.com/MetaCubeX]) 所有。
