@@ -74,20 +74,15 @@
 
 
 2. **安装模块**
-* 从 [Releases]([https://github.com/waterblue-sea/Pure-Mihomo-for-Magisk/releases/tag/main])页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
+* 从 [Releases]([https://github.com/waterblue-sea/Pure-Mihomo-for-Magisk/releases/tag/main])页面下载最新版 zip包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
 
 
-3. **下载伴生应用 Pure Mihomo**
-* 将你调校好的 `config.yaml` 放置于 `/data/adb/mihomo/`。
+3. **安装伴生应用 Pure Mihomo**
+* 从 [Releases]([https://github.com/waterblue-sea/Pure-Mihomo-for-Magisk/releases/tag/main])页面下载最新 apk文件，在手机安装，并于 Magisk / KernelSU / APatch 管理器中给予 超级用户(root) 权限，后重启设备。
 
 
-```
-
-
-
-
-4. **重启设备**
-* 重启后，查看日志或执行 `pgrep mihomo`，确认核心是否正常常驻。
+4. **最后确认**
+* 重启设备后，利用 MT管理器 或 模块(mihomo_ksu_pure) 内置脚本将你的 yaml配置文件导入 /data/adb/mihomo ，替换原本占位的 config.yaml，后利用脚本完成重载，并查看 Pure Mihomo 内的日志或执行 `su -c pgrep mihomo`，确认核心是否正常常驻。
 
 
 
@@ -121,6 +116,7 @@
 
 ---
 
-## 📄 开源许可证
+## 📄 开源许可证与致谢
 
-本项目基于 [GPL-3.0 License]([https://www.gnu.org/licenses/gpl-3.0.html]) 协议开源分发。核心可执行文件归 [Mihomo 官方项目组]([https://github.com/MetaCubeX]) 所有。
+- 本项目基于 [GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html) 协议开源分发。
+- 模块底层核心完全依赖并致敬 [MetaCubeX 组织](https://github.com/MetaCubeX) 开发的 [Mihomo 核心项目](https://github.com/MetaCubeX/mihomo)。配置详情可参考 [Mihomo 官方文档](https://wiki.metacubex.one/)。
