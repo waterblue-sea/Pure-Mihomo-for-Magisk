@@ -2,7 +2,7 @@
 ### 📌 项目简介（Repository About / Short Bio）
 
 > **极简、克制且忠于原貌的 Android / Magisk (KernelSU / APatch) `mihomo` 透明代理脚本模块。**
-> 专为深谙 YAML 语法的高级玩家打造：支持 TUN 模式 + 黑/白名单 + Fake-IP 混合调度；**死守零侵入原则，绝不解析、篡改、打乱或阉割你的原生配置文件**。
+> 支持 TUN 模式 + 黑/白名单 + Fake-IP 混合调度；**零侵入原则，绝不解析、篡改、打乱或阉割你的原生配置文件**。
 
 ---
 
