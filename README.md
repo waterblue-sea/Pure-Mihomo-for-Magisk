@@ -64,36 +64,17 @@
 
 ---
 
-## 📂 推荐目录结构与文件布局
 
-模块安装后，相关工作目录一般位于 `/data/adb/mihomo/`：
-
-```text
-/data/adb/mihomo/
-├── mihomo               # Mihomo 可执行核心二进制文件
-├── config.yaml          # 你的原生配置文件（完全由你掌控，绝不篡改）
-├── country.mmdb         # GeoIP 数据库文件
-├── geoip.dat / geosite.dat (可选)
-├── scripts/
-│   ├── start.sh         # 核心拉起与路由规则部署脚本
-│   └── stop.sh          # 路由复原与进程清理脚本
-└── config/
-    ├── mode             # 运行模式定义: [whitelist | blacklist | global]
-    └── app_list.txt     # 黑/白名单包名或 UID 列表
-
-```
-
----
 
 ## 🚀 快速上手
 
 1. **环境准备**
-* 已获取 Root 权限的 Android 设备（推荐 Magisk 25.0+、KernelSU 0.9.0+ 或 APatch）。
+* 已获取 Root 权限或越狱权限的 Android 设备（推荐 Magisk 25.0+、KernelSU 0.9.0+ 或 APatch）。
 * 系统支持 `CONFIG_NETFILTER` 与 TUN 特性（现代内核均原生满足）。
 
 
 2. **安装模块**
-* 从 [Releases](https://www.google.com/search?q=../../releases&utm_source=gemini) 页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
+* 从 [Releases]页面下载最新版压缩包，在 Magisk / KernelSU / APatch 管理器中刷入，**暂不建议立刻重启**。
 
 
 3. **放置并检查配置**
@@ -153,7 +134,7 @@ dns:
 > 🙋‍♂️ **关于作者：**
 > 本人技术水平有限（纯粹是一枚爱折腾的小白），写这个脚本主要是为了满足自己对“纯净透明代理”的强迫症需求，免去每次升级第三方模块都被强行格式化 YAML 的痛苦。
 > 代码难免有考虑不周、处理粗糙或边界覆盖不全之处。如果您在测试时发现了 Bug、逻辑漏洞或者有更优雅的 Shell 实现思路：
-> **还请各位技术大佬口下留情、轻喷指正！** 欢迎直接提 [Issue](https://www.google.com/search?q=../../issues&utm_source=gemini) 或直接提交 [Pull Request](https://www.google.com/search?q=../../pulls&utm_source=gemini) 一起完善打磨。
+> **还请各位技术大佬口下留情、轻喷指正！** 欢迎直接提 [Issue]或直接提交 [Pull Request] 一起完善打磨。
 
 ---
 
