@@ -118,5 +118,5 @@
 
 ## 📄 开源许可证与致谢
 
-- 本项目基于 [GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html) 协议开源分发。
+- 本项目基于 [GNU General Public License v3.0 (GPL-3.0)]([https://www.gnu.org/licenses/gpl-3.0.txt]) 协议开源分发。
 - 模块底层核心完全依赖并致敬 [MetaCubeX 组织](https://github.com/MetaCubeX) 开发的 [Mihomo 核心项目](https://github.com/MetaCubeX/mihomo)。配置详情可参考 [Mihomo 官方文档](https://wiki.metacubex.one/)。
