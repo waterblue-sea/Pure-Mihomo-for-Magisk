@@ -1,24 +1,9 @@
-#
-# Copyright (C) 2026 <waterblue-sea> <https://github.com/waterblue-sea>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 #!/system/bin/sh
 until [ "$(getprop sys.boot_completed)" = "1" ]; do sleep 2; done
 
 CONFIG_FILE="/data/adb/mihomo/config.yaml"
 PKG_CFG="/data/adb/mihomo/package.list.cfg"
+FAKE_CFG="/data/adb/mihomo/fake.list.cfg"
 CRON_DIR="/data/adb/mihomo/cron"
 LOG_FILE="/data/adb/mihomo/run/core.log"
 TMP_TUN="/data/adb/mihomo/run/tun_block.tmp"
@@ -30,18 +15,25 @@ export PATH="/system/bin:/system/xbin:/data/adb/ap/bin:/data/adb/ksu/bin:/data/a
 
 if [ -f "$PKG_CFG" ]; then
     MODE=$(busybox sed -n 's/^mode:\([^ ]*\).*/\1/p' "$PKG_CFG" | busybox tr -d '\r\n')
-    PKG_LIST=$(busybox awk -F':' '!/^mode:/ && !/^#/ && NF==2 {gsub(/[\r\n]/,"",$2); print "\""$2"\""}' "$PKG_CFG" | busybox paste -sd, -)
     
+    busybox sed -i 's/exclude-package:.*/exclude-package: []/g' "$CONFIG_FILE"
+    busybox sed -i 's/include-package:.*/include-package: []/g' "$CONFIG_FILE"
+
     INC_LIST=""
     EXC_LIST=""
+
     if [ "$MODE" = "blacklist" ] || [ "$MODE" = "black" ]; then
-        EXC_LIST="$PKG_LIST"
+        EXC_LIST=$(busybox awk -F':' '!/^mode:/ && !/^#/ && NF==2 {gsub(/[\r\n]/,"",$2); print "\""$2"\""}' "$PKG_CFG" | busybox paste -sd, -)
+    
     elif [ "$MODE" = "whitelist" ] || [ "$MODE" = "white" ]; then
-        INC_LIST="$PKG_LIST"
+        if busybox grep -q 'enhanced-mode: fake-ip' "$CONFIG_FILE" && busybox grep -q '^tun:' "$CONFIG_FILE" && [ -f "$FAKE_CFG" ]; then
+            EXC_LIST=$(busybox awk -F':' '!/^mode:/ && !/^#/ && NF==2 {gsub(/[\r\n]/,"",$2); print "\""$2"\""}' "$FAKE_CFG" | busybox paste -sd, -)
+        else
+            INC_LIST=$(busybox awk -F':' '!/^mode:/ && !/^#/ && NF==2 {gsub(/[\r\n]/,"",$2); print "\""$2"\""}' "$PKG_CFG" | busybox paste -sd, -)
+        fi
     fi
 
     if busybox grep -q '^tun:' "$CONFIG_FILE"; then
-        
         cat > "$TMP_TUN" <<EOF
 tun:
   enable: true
